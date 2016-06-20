@@ -1,5 +1,5 @@
 #biscottiCFG
-v. 1.0
+v. 1.01
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -181,7 +181,7 @@ Type `nightmare_0` to deactivate all the nightmare loops.
 | `regen_on`				| Enables REGEN. Make sure that the server has `sv_cheats 1` and `sv_allow_wait_command 1`.	|
 | `regen_off`				| Disables REGEN.																			|
 | `nightmare_1`				| Activates *Nightmare Mode* to make your life more difficult for fun. Welcome to the real world, maggot. *CURRENTLY NOT INCLUDED THE CONFIG* |
-| `nightmare_0`				| Deactivates *Nightmare Mode*. Welcome back to kindergarten. *CURRENTLY NOT INCLUDED IN THE CONFIG |
+| `nightmare_0`				| Deactivates *Nightmare Mode*. Welcome back to kindergarten. *CURRENTLY NOT INCLUDED IN THE CONFIG* |
 
 ##[^](#top "Back to Top")Scout
 The Scout config is currently a bit broken, so one part of the script is disabled and has to be re-worked quite a bit, and honestly I really dislike that script anyway. Other than that, the loadout preset settings should work fine.
@@ -599,7 +599,7 @@ Because these scripts takes up a lot of the `F#` keys, the actual `F` key, and a
 
 `P` is now the spray button instead of `T`.
 
-`[` os now the ready up button instead of `F4`.
+`]` os now the ready up button instead of `F4`.
 
 `F10` is now the replay button instead of `F6`.
 
@@ -692,7 +692,7 @@ To toggle the script, and turn it on/off use the commands `sht_ding_t`, `sht_din
 | `ALT + F`				| Uses a random friendly disguise with normal walk speed. Demoman is excluded. |
 | `O`					| The inspect bind since `F` is taken up by the more useful random disguise bind. |
 | `P`					| Spray. Rebound because `T` is taken up by the quick-disguise script. |
-| `[`					| Ready Up! Rebound because `F4` is taken up by the quick-disguise script. |
+| `]`					| Ready Up! Rebound because `F4` is taken up by the quick-disguise script. |
 | `SHIFT`				| Amby snipe. Lowers sensitivity and FOV to simulate a sniper scope. |
 | `ALT + MOUSE1` - Revolver	| Doesn't hide viewmodel. Removes Auto-Reload to allow fake reloading. |
 | `ALT + MOUSE1` - Sapper	| Uses a voice line when sapping to mask the enemy Engie's voice line calling out spy. |
