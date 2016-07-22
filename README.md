@@ -1,5 +1,5 @@
 #biscottiCFG
-v. 1.06
+v. 1.06a
 
 This is my personal config for Team Fortress 2 (TF2).
 
