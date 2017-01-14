@@ -1,5 +1,5 @@
 #biscottiCFG
-v. 1.08
+v. 1.09
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -111,25 +111,47 @@ I've made a few `help` aliases in case you forget what some of the settings and 
 
 **Demo recording and rendering**
 
-I use P-REC to record demos, but I've also bound a few keys to make it easier. I also made a config that enables my demo rendering settings and allows for using aliases/binds to start the recording process. I found that this removed an audio desync issue that I was experiencing before.
+I used to use P-REC to record demos, but since Valve added their own system to TF2 (Demo Support which is basically identical to P-REC), I've been using that. To improve on it I've bound a few keys to make it easier. I also made a config that enables my demo rendering settings and allows for using aliases/binds to start the recording process. I found that this removed an audio desync issue that I was experiencing before.
 
-I've also included my own P-REC settings that you might want to change. You'll find them in `autoexec.cfg` under the `P-REC` section at the bottom of the file.
+I've also included my own Demo Support settings settings that you might want to change. You'll find them in `autoexec.cfg` under the `DEMO SUPPORT` section towards the bottom of the file.
 
-`ALT + SEMICOLON` is used to start the demo recording using P-REC. After that, pressing `SEMICOLON` will bookmark that point in the demo recording and ensure that the demo file doesn't get deleted. By default, all demos that don't contain bookmarks or notable killstreaks (kills in a short amount of time, *I think*) will get deleted automatically. This can be changed in the P-REC section of the config (change `prec_delete_useless_demo 1` to `prec_delete_useless_demo 0`).
+`ALT + SEMICOLON` is used to start the demo recording using Demo Support. After that, pressing `SEMICOLON` will bookmark that point in the demo recording and ensure that the demo file doesn't get deleted. By default, all demos that don't contain bookmarks or notable killstreaks (kills in a short amount of time, *I think*) will get deleted automatically. This can be changed in the DEMO SUPPORT section of the config (change `ds_autodelete 1` to `ds_autodelete 0`).
 
-`record_demo.cfg` is the file for rendering demos. What you want to do is load up the demo, then put `exec record_demo` in console. The config will then echo instructions in the console on how to render the demo. It'll say this:
+`demo_edit.cfg` is the file for *editing* demos. What you want to do is either load up the demo, then put `exec demo_edit` in console, or uncomment (delete the `//`) the line `//alias demo_state exec demo_edit`.
+
+To *render* the demos do the same as above but for `demo_render` instead. The difference is that it sets the `host_framerate` to `60` instead of `0` which is uncapped. If you're editing a demo at `host_framerate 60` it will speed up the playback, so for editing, use `0` (as in `demo_edit`).
+
+The config will echo instructions in the console on how to render the demo. It'll say this:
 
 ```
 To start recording, type 'alias movie 'startmovie **title** h264'', close the demoui and hit L.
-Type "alias r_drawviewmodel" in order to always have viewmodels on.
+Type 'alias r_drawviewmodel' in order to lock the current viewmodel setting, e.g. always have viewmodels on.
 To re-enable viewmodel scripts, restart TF2.
 ```
+
+Using any of the two above configs will also enable some binds to help with navigating demo playback. Note that you have to close the demo UI to use the binds. I know, it's annoying.
+
+| Binds				| Description																				|
+|:-----------------	|:-----------------------------------------------------------------------------------------	|
+| `KEYPAD 1`		| Sets playback speed to `0.5` which halves the playback. Basically slow-motion.			|
+| `KEYPAD 2`		| Sets playback speed to `1` which is normal speed. Undoes the other two playback speed settings.	|
+| `KEYPAD 3`		| Sets playback speed to `2` which is double the normal speed. Useful for fast-forwarding.	|
+| `KEYPAD 4`		| Goes back 1000 ticks. Equates to about 10 seconds. It will have to reload the demo which is annoying.	|
+| `KEYPAD 5`		| Pauses/resumes the demo playback. Will only work when the demo UI is closed (same as all the other binds).	|
+| `KEYPAD 6`		| Goes forward 1000 ticks. Equates to about 10 seconds. Does NOT have to reload the demo which is great!	|
+| `KEYPAD 7`		| Toggles viewmodels. 																		|
+| `KEYPAD 8`		| Toggles showing the HUD. I believe it also stops the menu from showing, so use at own risk. Toggle the HUD back on before using menus.	|
+| `KEYPAD 9`		| Toggles chat messages from showing up. Basically removes the chat.						|
+| `KEYPAD PLUS`		| Toggles between firstperson and thirdperson view. Note that it *toggles*. It starts on firstperson.	|
+| `KEYPAD MINUS`	| Toggles showing blue wireframes. Basically a dope-ass see through vision like wall-hack. It's obviously not a hack, though. Don't worry.	|
 
 **Sensitivity, FOV, volume, and other stuff**
 
 In the `STANDARD SETTINGS` part of in `autoexec.cfg` you'll find a lot of normal settings for TF2 including my sensitivity, FOV, viewmodel FOV, and volume. You can change all these settings as you please.
 
-Currently I use: `viewmodel_fov 70`, `sensitivity 2.66`, and `volume .04`, and voice chat disabled.
+Currently I use: `viewmodel_fov 84`, `sensitivity 2.66`, and `volume .04`, and voice chat disabled. You can enable voice chat and it won't be horrible now that Valve implemented to updated VOIP codec.
+
+Note! If you want to change the viewmodel FOV to something not `84`, you also need to change the `demo_record.cfg` and `demo_render.cfg` files. The viewmodel FOV is also defined there to prevent a bug that for some reason would reset it to `70` for some reason.
 
 **Nightmare**
 
