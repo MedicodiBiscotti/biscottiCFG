@@ -1,5 +1,5 @@
-#biscottiCFG
-v. 1.09
+# biscottiCFG
+v. 1.10
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -21,22 +21,22 @@ This is my personal config for Team Fortress 2 (TF2).
 * [Credits](#credits)
 * [See it in action! YouTube!](#see-it-in-action-youtube)
 
-#[^](#top "Back to Top")What are scripts, though?!
+# [^](#top "Back to Top")What are scripts, though?!
 Scripts aren't cheats. They're basically just really fancy keybinds that personalize how you control the game. Some are simple, say you want to bind `slot2` to e, that's really easy to do. But some require a lot of scripting logic to pull off. Say you want to tell your team when you throw a sandvich, and then immediately switch to your minigun after throwing it, that's definitely possible, but it's much more complicated.
 
 I made a [YouTube video](https://youtu.be/FgiyDK5JVS4 "TF2: Explaining Scripts and Scripting [NOT Cheats!]") on my channel a while back that explains this in greater detail. It's 5 minutes long so it's just a cursory glance at the subject but it explains in general terms what scripting as a whole is about.
 
-#[^](#top "Back to Top")Installation
+# [^](#top "Back to Top")Installation
 Click the button that says **Download ZIP**.
 
 Then extract it to your `/tf/custom/` folder so that inside your custom folder there is a folder called **biscottiCFG** which contains `cfg` and `resource`.
 
-#[^](#top "Back to Top")Features
+# [^](#top "Back to Top")Features
 This is the main bulk of the readme and is divided into 10 sections based on the relevant classes (the 9 + All-Class). There are a lot of features in my config, so this is going to be quite long and might look disorganized. I'll make a brief explanation of what's happening in the config at the start of each section and conclude it with a table that shows the different keybinds to the different functions and what they do. I sincerely apologize if I miss anything. There's tons of stuff as it is, and who knows what I might add in the future.
 
 Good luck!
 
-##[^](#top "Back to Top")All-Class
+## [^](#top "Back to Top")All-Class
 This section has all the stuff that's common for all the classes like weapon switching, movement, and several other binds and scripts, like team calls on the keypad and inventory binds.
 
 **Weapon switching**
@@ -105,7 +105,7 @@ I've made a few `help` aliases in case you forget what some of the settings and 
 
 | Aliases					| Description |
 |:------------------------- |:----------- |
-| `help_crouch`				| Will tell the aliases to put in to switch between crouch/`duck` on `CTRL` or `SHIFT`. The aliases are `ctrlcrouch` and `shiftcrouch`. I use `CTRL`. |
+| `help_crouch`				| Will tell the aliases to put in to switch between crouch/`duck` on `CTRL` or `SHIFT`. The aliases are `ctrlcrouch` and `shiftcrouch`. I use ~~`CTRL`~~ `SHIFT`. Look in `STANDARD SETTINGS` to change it. |
 | `help_class`				| Will explain different class-specific scripts and controls. Will also list loadout preset settings. |
 | `help_loadout`			| Will explain how to enable/disable automatically switching presets with the loadout buttons. `loadoutpresets_t`, `loadoutpresets_1`, `loadoutpresets_0`, and `alias loadoutpresets_n loadoutpresets_0` to disable for all classes. |
 
@@ -120,6 +120,8 @@ I've also included my own Demo Support settings settings that you might want to 
 `demo_edit.cfg` is the file for *editing* demos. What you want to do is either load up the demo, then put `exec demo_edit` in console, or uncomment (delete the `//`) the line `//alias demo_state exec demo_edit`.
 
 To *render* the demos do the same as above but for `demo_render` instead. The difference is that it sets the `host_framerate` to `60` instead of `0` which is uncapped. If you're editing a demo at `host_framerate 60` it will speed up the playback, so for editing, use `0` (as in `demo_edit`).
+
+I've also added longer chat and killstreak notice times to compensate for the extra time it takes to render compared to normal play. Otherwise the chat would show for half a second and then disappear. This way the timing is similar to normal play. This timing is very much an approximation and it might vary on your system based on GPU, CPU, and demo activity.
 
 The config will echo instructions in the console on how to render the demo. It'll say this:
 
@@ -151,11 +153,13 @@ In the `STANDARD SETTINGS` part of in `autoexec.cfg` you'll find a lot of normal
 
 Currently I use: `viewmodel_fov 84`, `sensitivity 2.66`, and `volume .04`, and voice chat disabled. You can enable voice chat and it won't be horrible now that Valve implemented to updated VOIP codec.
 
-Note! If you want to change the viewmodel FOV to something not `84`, you also need to change the `demo_record.cfg` and `demo_render.cfg` files. The viewmodel FOV is also defined there to prevent a bug that for some reason would reset it to `70` for some reason.
+Note! ~~If you want to change the viewmodel FOV to something not `84`, you also need to change the `demo_record.cfg` and `demo_render.cfg` files. The viewmodel FOV is also defined there to prevent a bug that for some reason would reset it to `70` for some reason.~~ I figured out why it did it. It's when you open up the advanced settings, it reverts back to 70 because that's how high the slider goes. I also changed the demo configs to use the viewmodel_fov alias I had set up, so you only need to change it in `autoexec.cfg`. Search for `vmfov_def`. It's in `STANDARD SETTINGS`.
+
+Also, the volume thing is not actually enforced. It's commented out, because it used to conflict with my demo settings. This is not the case since I re-worked the system, but I still leave it commented out in case I want a different volume. Just letting you know, I usually use `0.04`.
 
 **Nightmare**
 
-*CURRENTLY NOT INCLUDED IN THE CONFIG. I'm going to keep it to myself for a little while.*
+*~~CURRENTLY NOT INCLUDED IN THE CONFIG. I'm going to keep it to myself for a little while.~~ Strike that, it's in because why not.*
 
 This is by far the stupidest thing I've ever written. And believe me, I've written a lot of dumb shit. This takes the cake.
 
@@ -185,14 +189,14 @@ Type `nightmare_0` to deactivate all the nightmare loops.
 | `ALT + KEYPAD 0`			| Say in chat that you have numbers and that they should push.								|
 | `ALT + KEYPAD DEL`		| Say in chat that the enemy team popped Über and that they should retreat.					|
 | **LOADOUT + INVENTORY**	|																							|
-| `CTRL + N`				| Item Quickswitch toggle. Press `N`, `CTRL + N`, or `ALT` to close it again.				|
+| `CROUCH + N`				| Item Quickswitch toggle. Press `N`, `CROUCH + N`, or `ALT` to close it again.	The crouch button depends on the a previous bind. Use `ctrlcrouch` or `shiftcrouch` to change. By default, crouch is now `SHIFT`.			|
 | `M`						| Loadout Screen																			|
-| `CTRL + M`				| Inventory Screen																			|
+| `CROUCH + M`				| Inventory Screen																			|
 | **MISC**					|																							|
 | `Z, X, C`					| Concise Voice Menus. Use slots `1`, `2`, `3` to navigate the voice commands. Ex. `Z12` = Thanks!	|
 | `ALT`						| ALT by itself resets most scripts, like enabling the viewmodel again and stopping loops.	|
 | `F11`						| Shows the contract drawer. At some point Valve changed it to F2 but I like it on F11.		|
-| `CTRL + TAB`				| Brings up the Scoreboard with mouse mode enabled. Mouse mode is disabled by default.		|
+| `CROUCH + TAB`			| Brings up the Scoreboard with mouse mode enabled. Mouse mode is disabled by default.		|
 | **DEMO RECORDING**		|																							|
 | `ALT + SEMICOLON`			| Starts a demo recording with P-REC.														|
 | `SEMICOLON`				| Bookmarks that point in the demo using P-REC.												|
@@ -205,7 +209,7 @@ Type `nightmare_0` to deactivate all the nightmare loops.
 | `nightmare_1`				| Activates *Nightmare Mode* to make your life more difficult for fun. Welcome to the real world, maggot. *CURRENTLY NOT INCLUDED THE CONFIG* |
 | `nightmare_0`				| Deactivates *Nightmare Mode*. Welcome back to kindergarten. *CURRENTLY NOT INCLUDED IN THE CONFIG* |
 
-##[^](#top "Back to Top")Scout
+## [^](#top "Back to Top")Scout
 The Scout config is currently a bit broken, so one part of the script is disabled and has to be re-worked quite a bit, and honestly I really dislike that script anyway. Other than that, the loadout preset settings should work fine.
 
 `help_class` will list the loadout preset aliases. You can change what loadouts get what setting in the `PRESETS` section. You can see how to disable the automatic preset switching by using `help_loadout` (`loadoutpresets_1` and `loadoutpresets_0`). Even if you disable it, you should still put the preferred preset at the bottom of the config under `SELECTIONS`.
@@ -244,7 +248,7 @@ By default, these are the loadout presets:
 | `pistol`				| Will activate the Pistol setting. Dot crosshair. Hides viewmodel when firing. |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Soldier
+## [^](#top "Back to Top")Soldier
 Soldier is really straightforward. It's mostly stock settings with several loadout presets and a market garden script for the rocket launcher. `help_class` will list the loadout preset aliases. You can change what loadouts get what setting in the `PRESETS` section. You can see how to disable the automatic preset switching by using `help_loadout` (`loadoutpresets_1` and `loadoutpresets_0`). Even if you disable it, you should still put the preferred preset at the bottom of the config under `SELECTIONS`.
 
 Of course, you can also edit the presets. For example, if you want to not hide the viewmodel when firing the shotgun, you can change the part `alias vm_slt_2 vm_0` to `alias vm_slt_2 vm_1`.
@@ -313,10 +317,16 @@ To change between the positions use the aliases `pos#` where `#` is a number des
 | `cm_pres` aliases (Cow Mangler presets)	| `cm_pres_assist` keeps your jump assist script and makes `ALT + MOUSE2` alt-fire. `cm_pres_noassist` disables jump assist scripts and makes `MOUSE2` alt-fire like normal. `alias cm_pres [PRESET]` to change it. |
 | `loadoutpresets` aliases			| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Pyro
+## [^](#top "Back to Top")Pyro
 Pyro is also pretty simple. Dot crosshairs on primary (Flame Thrower) and secondary (Shotgun/Flare Gun), and default crosshair for melee. I also have a ding sound that plays to alert you when the Flare has fully reloaded. Note that this also plays for the shotgun, but you can disable it by changing the line `flare_ding_1` to `flare_ding_0` in the `SELECTIONS` section at the bottom of the config. I also tied them to different loadouts. You can change what loadouts get the setting enabled/disabled in the `PRESETS` section, and you can see how to disable the automatic preset switching by using `help_loadout` (`loadoutpresets_1` and `loadout_presets_0`).
 
 On the derpier side, I also have a Panic Mode button that will cause you to spray flames like a maniac.
+
+Now, a cool thing I recently added was the ability to completely remove the flame particles. Not just the viewmodel, the God damn actual *flames*. This is useful for actually seeing what's happening on screen when shooting the damn thing. Let me tell you, not having fire in my face improves visiblity!
+
+`noflame_1` enables this feature, removing the flames. `noflame_0` disables it, making it look like normal. `noflame_t` toggles between on/off. `noflame_vm_1`, `noflame_vm_0`, and `noflame_vm_t` is an extra set of settings. `noflame_vm_1` is like normal, the viewmodel is there until you fire, then the viewmodel and flames disappear (there's no way to only remove the flames, the viewmodel has to go as well, at least without actual particle mods). `noflame_vm_0` is if you prefer the viewmodel to always be off. It's practically the same as just removing the viewmodel, but I figured I'd tie it in here because the two settings were related (and technically it's removed with the same setting as the flames and not actually the viewmodel setting, but anyway, it seemed like a nice option to add here). By default, I've turned `noflame` on, so it removes flames, but the viewmodel is there normally until you fire (comes back when pressing a weapon button (including the flamethrower again even though you're already oin it) or pressing `ALT`).
+
+One small thing, because this uses the `viewmodel_fov` command and resets it to the config defined default value (for me personally `84`, but you can change this), it will not work well with the *nightmare mode* thing that intentionally messes up your `viewmodel_fov` for fun. Because the *nightmare* thing is done using a loop, it will override this setting meaning that your flames and viewmodel will still be visible while that particular *plague*, as I've called them because I couldn't think of an actual good name, is active.
 
 **Pyro features in a table**
 
@@ -329,9 +339,11 @@ On the derpier side, I also have a Panic Mode button that will cause you to spra
 |:---------------------	|:----------- |
 | `panicmode` aliases	| `panicmode_t` (toggles), `panicmode_1` (enables), `panicmode_0` (disables). |
 | `flare_ding` aliases	| A ding sound to alert you when the Flare Gun is reloaded. `flare_ding_t` (toggles), `flare_ding_1` (enables) (default), `flare_ding_0` (disables). |
+| `noflame` aliases	| Removes the viewmodel and *flames* when firing. Improves visiblity. `noflame_t` (toggles), `noflame_1` (enables) (default), `noflame_0` (disables). |
+| `noflame_vm` aliases	| Always have the viewmodel and *flames* removed, not just when firing. Improves visiblity. `noflame_vm_t` (toggles), `noflame_vm_1` (enables), `noflame_vm_0` (disables) (default). |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Demoman
+## [^](#top "Back to Top")Demoman
 Demoman is almost a very basic config. He's basically all stock settings. He has a small dot crosshair on primary (grenade launcher) and secondary (Sticky Launcher), and the default crosshair for melee. Aside from that, he's all stock. Doesn't even hide his viewmodels. Nothing fancy at all.
 
 The one thing that makes it complicated is the support added for removing certain weapon slots, like putting on a shield or boots to go demoknighting. This feature took a lot of extra behind-the-scenes coding to get to work properly, but that is also the only feature of the Demoman config that is remotely different from the others.
@@ -368,7 +380,7 @@ The setting presets are also tied to loadout presets which, of course, you can e
 | `man`						| Will activate the Demoman setting. Uses all weapon slots and activates slot settings. |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Heavy
+## [^](#top "Back to Top")Heavy
 You might not think that heavy would be very complicated to script for, but you'd be surprised how much advanced stuff you have to account for when considering the Sandvich and other related food items.
 
 As far as crosshairs, the primary (Minigun) uses a small dot crosshair, the secondary when using the `shotgun` preset also uses the small dot crosshair but uses the default crosshair with `sandvich` and `buffalo` presets, and the melee uses the default crosshair.
@@ -411,7 +423,7 @@ The aliases to enable/disable/toggle this script are `msg_food_tn` (toggles), `m
 | `msg_food` aliases		| The chat message when throwing food. `msg_food_tn` (toggles), `msg_food_t1` (enables), `msg_food_t0` (disables). |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Engineer
+## [^](#top "Back to Top")Engineer
 The Engineer is a fairly mechanically complex class, which means that it's the perfect candidate for some scripting fun. But first, the crosshairs. The primary (Shotgun) and secondary (Pistol) use the small dot crosshair and hide your viewmodel when firing. The melee uses the default crosshair.
 
 **Presets**
@@ -459,7 +471,7 @@ Credit goes to [Uncle Dane](https://www.youtube.com/user/danethebrain "Uncle Dan
 | `eureka` aliases		| Enables/disables `B` and `ALT + B` teleporting using the Eureka Effect. Can be disabled because it switches to wrench when used. `eureka_t` (toggles), `eureka_1` (enables) (default), `eureka_0` (disables). |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Medic
+## [^](#top "Back to Top")Medic
 Medic is pretty complicated and has a lot of features. But first, the crosshairs. The primary (Syringe Gun/Crossbow) and the melee (Bonesaw) use the small dot crosshair, and the secondary (Medigun) uses the default crosshair to get that awesome medic cross crosshair.
 
 `help_class` will list some of the commands for the different settings. A lot of the settings are enabled by default at the bottom of the file. If you wish to have certain settings disabled by default, feel free to change that at the bottom of the file in the `SELECTIONS` section. Just try changing the `1`s to `0`s.
@@ -546,7 +558,7 @@ This is a script for switching resistances using the thumb buttons on the mouse.
 | `crossbow_ding` aliases	| A ding sound to alert you when the Crossbow is reloaded. `crossbow_ding_t` (toggles), `crossbow_ding_1` (enables) (default), `crossbow_ding_0` (disables). |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Sniper
+## [^](#top "Back to Top")Sniper
 Sniper is similar to Soldier in that it's mostly stock settings with presets. `help_class` will list the loadout preset aliases and the aliases required for changing the *XTRA ZOOM* script. You can change what loadouts get what setting in the `PRESETS` section. You can see how to disable the automatic preset switching by using `help_loadout` (`loadoutpresets_1` and `loadoutpresets_0`). Even if you disable it, you should still put the preferred preset at the bottom of the config under `SELECTIONS`.
 
 The Sniper config is also intended to have different settings for different ways to control the Classic sniper rifle. I used to have that programmed in an older version of my config but I never got around to porting it into the newer config. Maybe some day.
@@ -594,7 +606,7 @@ To change presets either change the line `alias xtra_zoom_pres xtra_zoom_pres_+`
 | `smg`					| Will activate the SMG setting. Dot crosshair. Hides viewmodel when firing. |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
-##[^](#top "Back to Top")Spy
+## [^](#top "Back to Top")Spy
 Welcome to my world. This is the crown jewel of the config and one of the most complicated class configs along with Engineer and Medic, so it's going to take a while to go through everything. First up is the crosshairs. The primary (Revolver) as well as the melee (Knife) use the small dot crosshair, and the secondary (Sapper) uses the default crosshair which in the case of the Sapper looks like a small bracket square thing. I like it.
 
 There are no loadout preset settings, and putting together a `help_class` is going to take a while, so I've put it off for now.
@@ -735,7 +747,7 @@ To toggle the script, and turn it on/off use the commands `sht_ding_t`, `sht_din
 | `sht_ding` aliases	| A ding sound to alert you when the accuracy has reset to 100%. `sht_ding_t` (toggles), `sht_ding_1` (enables), `sht_ding_0` (disables) (default). |
 | `sht_ding_pres` alias (timing presets)	| `sht_ding_amby` timing of 0.95 sec (default). `sht_ding_revo` timing of 1.25 sec. `alias sht_ding_pres [PRESET]` to change. |
 
-#[^](#top "Back to Top")Close Captions
+# [^](#top "Back to Top")Close Captions
 The initial Close Captions were created by **Clovervidia** and edited by me. That includes all the ones alerting about current events around you, like an Über being popped or a Scout catching fire etc. Most of the voice lines that are set to not say anything were also found by Clovervidia but I continued to support this, updating it as I find more voice lines that need to be taken care of.
 
 All the script-specific captions, like alerting you when engaging certain presets, were made by me.
@@ -756,10 +768,10 @@ I try to keep these updated so it doesn't flood your console with `Caption not f
 
 [Here](https://steamcommunity.com/sharedfiles/filedetails/?id=167785751 "Clovervidia's Guide to CC") is a guide by **Clovervidia** that explains CC and how to use it.
 
-#[^](#top "Back to Top")Credits
+# [^](#top "Back to Top")Credits
 Thanks to [r/tf2scripts](https://www.reddit.com/r/Tf2Scripts "r/tf2scripts on Reddit") and [r/tf2scripthelp](https://www.reddit.com/r/tf2scripthelp "r/tf2scripthelp on Reddit") for being awesome and for occasionally teaching me some new tricks and helping me improve!
 
 Thanks to Clovervidia for making the original captions.
 
-#[^](#top "Back to Top")See it in action! YouTube!
+# [^](#top "Back to Top")See it in action! YouTube!
 I also have a [YouTube channel](https://www.youtube.com/user/SuperKavv "Medico di Biscotti on YouTube") that serves as a dump-site for the terrible, terrible videos I make from time to time. I use my own scripts for obvious reasons, and while I don't showcase the individual parts of my config, any video I make, any game of TF2 I play, is using this config.
