@@ -1,5 +1,5 @@
 # biscottiCFG
-v. 1.10b
+v. 1.10c
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -218,6 +218,8 @@ The Scout config is currently a bit broken, so one part of the script is disable
 
 `milk` functions similarly to `jarate` for the Sniper which we'll get to later. It'll make the script immediately switch to the primary (Scattergun) after throwing the milk. If you hold `ALT` while you throw the milk, you'll switch to your melee instead. It also enables the default crosshair for the milk and prevents the viewmodel from disappearing.
 
+It is worth noting that it actually switches weapon after throwing *faster* than the game normally would, which is actually a pretty big advantage and I feel kind of dirty knowing that. Keep in mind that if you switch to the milk and press and release to throw it before the milk is actually out, it will misfire and switch weapons again without having thrown it.
+
 `pistol` is the default preset available and behaves like you would expect a hitscan weapon to behave in this config. It uses the small dot crosshair and hides the viewmodel when you fire it. Again, this can be changed by editing the part `alias vm_slt_2 vm_0` to `alias vm_slt_2 vm_1` in the `PISTOL` section. Like so:
 
 ```
@@ -387,7 +389,7 @@ As far as crosshairs, the primary (Minigun) uses a small dot crosshair, the seco
 
 `help_class` will list the loadout preset aliases. You can change what loadouts get what setting in the `PRESETS` section. You can see how to disable the automatic preset switching by using `help_loadout` (`loadoutpresets_1` and `loadoutpresets_0`). Even if you disable it, you should still put the preferred preset at the bottom of the config under `SELECTIONS`.
 
-Fun fact, I also wrote a script to circumvent the longer holster time when using the Fists of Steel. I think it was called the sandvich skip or something when it was first discovered (which was not by me, unfortunately). It's not included here because I would have to redo a whole lot of stuff in the main part of the config to support it while maintaining all other features. Basically, all binds that would switch weapon would have to be `+/-` states which more code and a hell of a lot of rewriting.
+Fun fact, I also wrote a script to circumvent the longer holster time when using the *Fists of Steel*. I think it was called the sandvich skip or something when it was first discovered (which was not by me, unfortunately). It's not included here because I would have to redo a whole lot of stuff in the main part of the config to support it while maintaining all other features. Basically, all binds that would switch weapon would have to be `+/-` states which more code and a hell of a lot of rewriting.
 
 **Presets**
 
@@ -396,6 +398,8 @@ Fun fact, I also wrote a script to circumvent the longer holster time when using
 `buffalo` is the preset for using the Buffalo Steak Sandvich. It uses the default crosshair and switches to your melee weapon when used, and your last active weapon when thrown in order to track your weapon switches.
 
 `shotgun` is the preset for using the Shotgun. It uses the small dot crosshair and hides viewmodel when firing.
+
+Keep in mind that if you switch to the sandvich (or any food item) and press and release either mouse button before the food is actually out, it will misfire and switch weapons again without having thrown it.
 
 | Loadout	| Preset	|
 |:---------	|:--------- |
@@ -568,6 +572,8 @@ The Sniper config is also intended to have different settings for different ways
 **Presets**
 
 `jarate` is the preset for using Jarate. It will use the default crosshair and will switch to your melee immediately after throwing Jarate. If you hold `ALT`, it will switch to your primary (Sniper Rifle) instead. The switching can be reversed by editing the `+jarate_t` and `-jarate_t` aliases. This setting is enabled by default.
+
+It is worth noting that it actually switches weapon after throwing *faster* than the game normally would, which is actually a pretty big advantage and I feel kind of dirty knowing that. Keep in mind that if you switch to the jarate and press and release to throw it before the jarate is actually out, it will misfire and switch weapons again without having thrown it.
 
 `razorback` is pretty much identical to Gunboats. It will remove slot2 from the mousewheel and any attempts to go to slot2 won't change any script settings like crosshair or viewmodel.
 
