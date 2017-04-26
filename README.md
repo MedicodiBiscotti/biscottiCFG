@@ -1,5 +1,5 @@
 # biscottiCFG
-v. 1.10c
+v. 1.10d
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -218,7 +218,9 @@ The Scout config is currently a bit broken, so one part of the script is disable
 
 `milk` functions similarly to `jarate` for the Sniper which we'll get to later. It'll make the script immediately switch to the primary (Scattergun) after throwing the milk. If you hold `ALT` while you throw the milk, you'll switch to your melee instead. It also enables the default crosshair for the milk and prevents the viewmodel from disappearing.
 
-It is worth noting that it actually switches weapon after throwing *faster* than the game normally would, which is actually a pretty big advantage and I feel kind of dirty knowing that. Keep in mind that if you switch to the milk and press and release to throw it before the milk is actually out, it will misfire and switch weapons again without having thrown it.
+It is worth noting that it actually switches weapon after throwing *faster* than the game normally would, which is actually a pretty big advantage and I feel kind of dirty knowing that. Technically, you can accomplish the same thing by switching weapons really fast manually, so it's not a cheat and it only happened as a result of me needing to accurately track which weapon you have out.
+
+Keep in mind that if you switch to the milk and press and release to throw it before the milk is actually out, it will misfire and switch weapons again without having thrown it.
 
 `pistol` is the default preset available and behaves like you would expect a hitscan weapon to behave in this config. It uses the small dot crosshair and hides the viewmodel when you fire it. Again, this can be changed by editing the part `alias vm_slt_2 vm_0` to `alias vm_slt_2 vm_1` in the `PISTOL` section. Like so:
 
@@ -573,7 +575,9 @@ The Sniper config is also intended to have different settings for different ways
 
 `jarate` is the preset for using Jarate. It will use the default crosshair and will switch to your melee immediately after throwing Jarate. If you hold `ALT`, it will switch to your primary (Sniper Rifle) instead. The switching can be reversed by editing the `+jarate_t` and `-jarate_t` aliases. This setting is enabled by default.
 
-It is worth noting that it actually switches weapon after throwing *faster* than the game normally would, which is actually a pretty big advantage and I feel kind of dirty knowing that. Keep in mind that if you switch to the jarate and press and release to throw it before the jarate is actually out, it will misfire and switch weapons again without having thrown it.
+It is worth noting that it actually switches weapon after throwing *faster* than the game normally would, which is actually a pretty big advantage and I feel kind of dirty knowing that. Technically, you can accomplish the same thing by switching weapons really fast manually, so it's not a cheat and it only happened as a result of me needing to accurately track which weapon you have out.
+
+Keep in mind that if you switch to the jarate and press and release to throw it before the jarate is actually out, it will misfire and switch weapons again without having thrown it.
 
 `razorback` is pretty much identical to Gunboats. It will remove slot2 from the mousewheel and any attempts to go to slot2 won't change any script settings like crosshair or viewmodel.
 
