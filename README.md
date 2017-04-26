@@ -1,5 +1,5 @@
 # biscottiCFG
-v. 1.10a
+v. 1.10b
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -93,7 +93,7 @@ They are:
 |:------------- |:--------- |:-----------------------------------------------------------------------------------------	|
 | `derpmove_t`	| KEYPAD 1	| Moves back and forth really quickly. The goal is to make a feet shuffling motion.			|
 | `brutal_t`	| KEYPAD 2	| Spams the taunt in the second Taunt slot. Please make sure that it's the Shread Alert. It also changes your loadout to B because that's where I have my Saharan Spy set which adds the sandstorm effect. |
-| `pootis_t`	| N/A		| Spams the voice command "Dispenser Here!". The goal is to make the Heavy say "Pootis".	|
+| `vo_t`		| N/A		| Spams a dedicated voice command. Be default it's "Help!", but "Dispenser Here!" is always a classic. Fun fact, I used to call this loop "pootis". Because memes.	|
 | `dwep_t`		| KEYPAD 3	| Rapidly switches through your weapons. On spy this will also change your disguise weapon.	|
 | `jump_t`		| KEYPAD DEL | Makes you jump. 'Nuff said. Has funny interaction with the Base Jumper (Parachute).		|
 | `shake_t`		| N/A		| Makes you shake your head rapidly from side to side.										|
@@ -332,7 +332,7 @@ One small thing, because this uses the `viewmodel_fov` command and resets it to 
 
 | Binds					| Description |
 |:---------------------	|:----------- |
-| `SHIFT`				| Toggles Panic Mode! AAARRRGGHHHHH FIIIIIRREEEEEEE!!! |
+| `SHIFT` or `CTRL` if `shiftcrouch` is active (which it is by default now)		| Toggles Panic Mode! AAARRRGGHHHHH FIIIIIRREEEEEEE!!! |
 | `ALT`					| Also disables Panic Mode. Only disables. |
 
 | Aliases				| Description |
@@ -386,6 +386,8 @@ You might not think that heavy would be very complicated to script for, but you'
 As far as crosshairs, the primary (Minigun) uses a small dot crosshair, the secondary when using the `shotgun` preset also uses the small dot crosshair but uses the default crosshair with `sandvich` and `buffalo` presets, and the melee uses the default crosshair.
 
 `help_class` will list the loadout preset aliases. You can change what loadouts get what setting in the `PRESETS` section. You can see how to disable the automatic preset switching by using `help_loadout` (`loadoutpresets_1` and `loadoutpresets_0`). Even if you disable it, you should still put the preferred preset at the bottom of the config under `SELECTIONS`.
+
+Fun fact, I also wrote a script to circumvent the longer holster time when using the Fists of Steel. I think it was called the sandvich skip or something when it was first discovered (which was not by me, unfortunately). It's not included here because I would have to redo a whole lot of stuff in the main part of the config to support it while maintaining all other features. Basically, all binds that would switch weapon would have to be `+/-` states which more code and a hell of a lot of rewriting.
 
 **Presets**
 
@@ -450,7 +452,7 @@ Simple. If you hold `ALT` while pressing `mouse1` (left-click) to attack while h
 
 **Eureka teleport**
 
-If you enable a setting called `eureka_1` then hitting `B` will teleport you to your spawn using the Eureka Effect. Holding `SHIFT` while pressing `B` (`SHIFT + B`) will teleport you to your teleporter exit instead. This setting is enabled by default so you don't have to worry about enabling the setting whenever you wish to use the Eureka Effect. I only made it into an on/off setting to give the option to disable it if you don't want to accidentally hit `B` and switch to your wrench for no reason. `eureka_0` to disable. `eureka_t` to toggle it.
+If you enable a setting called `eureka_1` then hitting `B` will teleport you to your spawn using the Eureka Effect. Holding `SHIFT` (or `CTRL` if `shiftcrouch` is active (which it is by default)) while pressing `B` (`SHIFT/CTRL + B`) will teleport you to your teleporter exit instead. This setting is enabled by default so you don't have to worry about enabling the setting whenever you wish to use the Eureka Effect. I only made it into an on/off setting to give the option to disable it if you don't want to accidentally hit `B` and switch to your wrench for no reason. `eureka_0` to disable. `eureka_t` to toggle it.
 
 Credit goes to [Uncle Dane](https://www.youtube.com/user/danethebrain "Uncle Dane on YouTube") or whoever made it for him. I got the script from [this video](https://youtu.be/4ABLluYwt9Q "The Jag Effect Rollout") he made.
 
@@ -459,7 +461,7 @@ Credit goes to [Uncle Dane](https://www.youtube.com/user/danethebrain "Uncle Dan
 | Binds					| Description |
 |:---------------------	|:----------- |
 | `B`					| With Eureka Effect will teleport to spawn. |
-| `SHIFT + B`			| With Eureka Effect will teleport to teleporter exit. |
+| `SHIFT/CTRL + B`			| With Eureka Effect will teleport to teleporter exit. Note that it's actually `CTRL` and not `SHIFT` because I recently switched to use the `shiftcrouch` setting. |
 | `F1 - F4`				| Quick-build. Destroys and builds the corresponding buildings. In order; Sentry, Dispenser, Entrance, Exit. Brings out wrench by default when building (Shotgun when holding `ALT`. Reversed with `gunslinger_1`). |
 | `ALT + F1 - F4`		| Will destroy corresponding buildings instead of building. Funnily enough, `ALT + F4` does not quit the game. At least mine doesn't. You mileage may vary. |
 | `F8`					| Player ready up in MvM and MM. |
@@ -508,7 +510,7 @@ Simple. If you hold `ALT` while pressing `mouse2` (right-click) while holding th
 
 **Radar**
 
-If you press `SHIFT` it should *ping* everyone on your team through walls to help you locate them, like sonar! It's a bit janky and might take a few tries to actually activate. It's also disabled in competitive matchmaking, I believe.
+If you press `SHIFT` (`CTRL` when `shiftcrouch` is active (which it is by default now)) it should *ping* everyone on your team through walls to help you locate them, like sonar! It's a bit janky and might take a few tries to actually activate. It's also disabled in competitive matchmaking, I believe.
 
 This script is also where you designate what you want your `hud_medicautocallersthreshold` at (the percentage health where your teammates' health will *ping* that they need healing). This is easy to change if you want to designate it in, say, `autoexec.cfg`, but there's really no point in doing that.
 
@@ -548,7 +550,7 @@ This is a script for switching resistances using the thumb buttons on the mouse.
 | `ALT + E`				| Alerts your heal target in team chat that you want to pop Über. |
 | `ALT + THUMB BUTTONS`	| When Vaccinator is enabled, these will switch to different resistances when pressed multiple times. |
 | `KEYPAD 0`			| Resets the Vaccinator script back to the Bullet resistance state. Switch to the bullet resistance, then press the reset to re-sync the script. |
-| `SHIFT`				| Radar script to locate teammates through walls. Disabled in matchmaking. |
+| `SHIFT/CTRL`			| Radar script to locate teammates through walls. Disabled in matchmaking. The default bind is `CTRL` because the `shiftcrouch` setting is active. |
 
 | Aliases				| Description |
 |:---------------------	|:----------- |
@@ -587,9 +589,9 @@ By default, these are the loadout presets:
 
 `help_class` will show the aliases required to change this script. They are `xtra_zoom_pres`, `xtra_zoom_pres_+`, and `xtra_zoom_pres_t`. `xtra_zoom_pres` is the neutral alias and `xtra_zoom_pres_+` and `xtra_zoom_pres_t` are the actual presets.
 
-`xtra_zoom_pres_+` is the preset where *holding down* `SHIFT` will half the zoom sensitivity making it more precise. This is the preset enabled by default.
+`xtra_zoom_pres_+` is the preset where *holding down* `SHIFT` (`CTRL` if `shiftcrouch` is active (which it is by default now)) will half the zoom sensitivity making it more precise. This is the preset enabled by default.
 
-`xtra_zoom_pres_t` is the preset where `SHIFT` acts as a *toggle* so pressing it once will half the zoom sensitivity and pressing it again will restore it to the default. This doesn't work well at all in my opinion, but it's there as an option. Currently there's no reset for it, so you'll have to keep track of whether or not the sensitivity is halfed yourself.
+`xtra_zoom_pres_t` is the preset where `SHIFT/CTRL` acts as a *toggle* so pressing it once will half the zoom sensitivity and pressing it again will restore it to the default. This doesn't work well at all in my opinion, but it's there as an option. Currently there's no reset for it, so you'll have to keep track of whether or not the sensitivity is halfed yourself.
 
 To change presets either change the line `alias xtra_zoom_pres xtra_zoom_pres_+` to the desired preset, or type it in console followed by `xtra_zoom_pres`. Note that this won't save between sessions.
 
@@ -597,7 +599,7 @@ To change presets either change the line `alias xtra_zoom_pres xtra_zoom_pres_+`
 
 | Binds					| Description |
 |:---------------------	|:----------- |
-| `SHIFT`				| The toggle for *XTRA ZOOM*. Will half the scoped sensitivity when engaged. |
+| `SHIFT/CTRL`			| The toggle for *XTRA ZOOM*. Will half the scoped sensitivity when engaged. The default bind is `CTRL` because the `shiftcrouch` setting is active. |
 
 | Aliases				| Description |
 |:---------------------	|:----------- |
@@ -662,7 +664,7 @@ The weapon spam loop which is a feature for all classes will in the case of the 
 
 **Amby snipe**
 
-By pressing `SHIFT` while holding the primary (Revolver), it will hide the viewmodel, lower your sensitivity and FOV (Field of Vision) which acts as a Sniper-esque scoped zoom. This is most useful with the Ambassador. Press `SHIFT` again, `ALT`, `mouse2`(right-click) to cloak, or hit any weapon switch including the primary again will turn the snipe zoom off. Toggling it off using `SHIFT` will still have the viewmodel off to let you continue shooting without the viewmodel.
+By pressing `SHIFT`(`CTRL` if `shiftcrouch` is active (which it is by default now)) while holding the primary (Revolver), it will hide the viewmodel, lower your sensitivity and FOV (Field of Vision) which acts as a Sniper-esque scoped zoom. This is most useful with the Ambassador. Press `SHIFT/CTRL` again, `ALT`, `mouse2`(right-click) to cloak, or hit any weapon switch including the primary again will turn the snipe zoom off. Toggling it off using `SHIFT/CTRL` will still have the viewmodel off to let you continue shooting without the viewmodel.
 
 **Voice masking (Sapper and Watch)**
 
@@ -727,7 +729,7 @@ To toggle the script, and turn it on/off use the commands `sht_ding_t`, `sht_din
 | `O`					| The inspect bind since `F` is taken up by the more useful random disguise bind. |
 | `P`					| Spray. Rebound because `T` is taken up by the quick-disguise script. |
 | `]`					| Ready Up! Rebound because `F4` is taken up by the quick-disguise script. |
-| `SHIFT`				| Amby snipe. Lowers sensitivity and FOV to simulate a sniper scope. |
+| `SHIFT/CTRL`				| Amby snipe. Lowers sensitivity and FOV to simulate a sniper scope. The default bind is `CTRL` because the `shiftcrouch` setting is active. |
 | `ALT + MOUSE1` - Revolver	| Doesn't hide viewmodel. Removes Auto-Reload to allow fake reloading. |
 | `ALT + MOUSE1` - Sapper	| Uses a voice line when sapping to mask the enemy Engie's voice line calling out spy. |
 | `ALT + MOUSE1` - Knife	| Automatically re-disguises as last disguise when attacking with the Knife.
