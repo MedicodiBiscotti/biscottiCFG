@@ -1,5 +1,5 @@
 # biscottiCFG
-v. 1.11
+v. 1.12
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -80,6 +80,10 @@ These are the helpful parts of the config. Basically just a quick way to alert y
 You can call out what class the enemy spy is currently disguised at by holding `ALT` and pressing the `NUMBER KEY` corresponding to the class you want to call. E.g. `ALT + 3` = "Spy is Pyro!"
 
 `ALT` + the numbers on the `NUMPAD` (referred to as `KEYPAD` because I have no regard for consistency) will call out which class is dead. Can also be used to call when the enemy team pops Über, when the sentry goes down, and when you have an advantage in numbers. E.g. `ALT + KEYPAD 7` = "Medic down!"
+
+**Class Switch**
+
+If you hold `KEYPAD 0` while pressing the `KEYPAD NUMBER KEYS`, you switch to the class corresponding to the number key. E.g. `KEYPAD 0 + KEYPAD 4` = Switch to **Demoman**.
 
 **Stupid loops/mousewheel binds**
 
@@ -188,6 +192,7 @@ Type `nightmare_0` to deactivate all the nightmare loops.
 | `ALT + KEYPAD PLUS`		| Say in chat: "Sentry down!"																|
 | `ALT + KEYPAD 0`			| Say in chat that you have numbers and that they should push.								|
 | `ALT + KEYPAD DEL`		| Say in chat that the enemy team popped Über and that they should retreat.					|
+| `KEYPAD 0 + KEYPAD 1-9`	| Switch to corresponding class.															|
 | **LOADOUT + INVENTORY**	|																							|
 | `CROUCH + N`				| Item Quickswitch toggle. Press `N`, `CROUCH + N`, or `ALT` to close it again.	The crouch button depends on the a previous bind. Use `ctrlcrouch` or `shiftcrouch` to change. By default, crouch is now `SHIFT`.			|
 | `M`						| Loadout Screen																			|
@@ -331,6 +336,8 @@ Now, a cool thing I recently added was the ability to completely remove the flam
 `noflame_1` enables this feature, removing the flames. `noflame_0` disables it, making it look like normal. `noflame_t` toggles between on/off. `noflame_vm_1`, `noflame_vm_0`, and `noflame_vm_t` is an extra set of settings. `noflame_vm_1` is like normal, the viewmodel is there until you fire, then the viewmodel and flames disappear (there's no way to only remove the flames, the viewmodel has to go as well, at least without actual particle mods). `noflame_vm_0` is if you prefer the viewmodel to always be off. It's practically the same as just removing the viewmodel, but I figured I'd tie it in here because the two settings were related (and technically it's removed with the same setting as the flames and not actually the viewmodel setting, but anyway, it seemed like a nice option to add here). By default, I've turned `noflame` on, so it removes flames, but the viewmodel is there normally until you fire (comes back when pressing a weapon button (including the flamethrower again even though you're already oin it) or pressing `ALT`).
 
 One small thing, because this uses the `viewmodel_fov` command and resets it to the config defined default value (for me personally `84`, but you can change this), it will not work well with the *nightmare mode* thing that intentionally messes up your `viewmodel_fov` for fun. Because the *nightmare* thing is done using a loop, it will override this setting meaning that your flames and viewmodel will still be visible while that particular *plague*, as I've called them because I couldn't think of an actual good name, is active.
+
+I also made loadout presets for `flaregun` (precise crosshair, hides viewmodel when fired, and activates the flare ding if you have that enabled), `shotgun` (precise and hides the crosshair when fired), `jetpack` (default crosshair), and `gascan` (default crosshair, and switches to the last weapon used (be mindful that the game doesn't know if you've actually thrown it yet, only that you pressed the button for it)).
 
 **Pyro features in a table**
 
