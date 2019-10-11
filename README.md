@@ -1,5 +1,5 @@
 # biscottiCFG
-v. 1.12
+v. 1.12a
 
 This is my personal config for Team Fortress 2 (TF2).
 
@@ -22,7 +22,7 @@ This is my personal config for Team Fortress 2 (TF2).
 * [See it in action! YouTube!](#see-it-in-action-youtube)
 
 # [^](#top "Back to Top")What are scripts, though?!
-Scripts aren't cheats. They're basically just really fancy keybinds that personalize how you control the game. Some are simple, say you want to bind `slot2` to e, that's really easy to do. But some require a lot of scripting logic to pull off. Say you want to tell your team when you throw a sandvich, and then immediately switch to your minigun after throwing it, that's definitely possible, but it's much more complicated.
+Scripts aren't cheats. They're basically just really fancy keybinds that personalize how you control the game. Some are simple, say you want to bind `slot2` to e, that's really easy to do. But some require a lot of scripting logic to pull off. Say you want to tell your team when you throw a sandvich, and then immediately switch to your Minigun after throwing it, that's definitely possible, but it's much more complicated.
 
 I made a [YouTube video](https://youtu.be/FgiyDK5JVS4 "TF2: Explaining Scripts and Scripting [NOT Cheats!]") on my channel a while back that explains this in greater detail. It's 5 minutes long so it's just a cursory glance at the subject but it explains in general terms what scripting as a whole is about.
 
@@ -123,7 +123,7 @@ I've also included my own Demo Support settings settings that you might want to 
 
 `demo_edit.cfg` is the file for *editing* demos. What you want to do is either load up the demo, then put `exec demo_edit` in console, or uncomment (delete the `//`) the line `//alias demo_state exec demo_edit`.
 
-To *render* the demos do the same as above but for `demo_render` instead. The difference is that it sets the `host_framerate` to `60` instead of `0` which is uncapped. If you're editing a demo at `host_framerate 60` it will speed up the playback, so for editing, use `0` (as in `demo_edit`).
+To *render* the demos do the same as above but for `demo_render` instead. The difference is that it sets the `host_frame rate` to `60` instead of `0` which is uncapped. If you're editing a demo at `host_frame rate 60` it will speed up the playback, so for editing, use `0` (as in `demo_edit`).
 
 I've also added longer chat and killstreak notice times to compensate for the extra time it takes to render compared to normal play. Otherwise the chat would show for half a second and then disappear. This way the timing is similar to normal play. This timing is very much an approximation and it might vary on your system based on GPU, CPU, and demo activity.
 
@@ -169,7 +169,7 @@ This is by far the stupidest thing I've ever written. And believe me, I've writt
 
 Basically, type in `nightmare_1` in console to activate *Nightmare Mode*. It's a client-side scripting game mod that I wrote for fun. What it does is activate a loop that periodically throws a random modifier into the mix that you have to deal with. It's just for messing with yourself and making your own life more difficult for fun. You can activate the loop multiple times to make it throw annoying stuff at you more often.
 
-Note that it uses the `wait` command to do pretty much everything, so you might have to tweak the `wait` values to suit your own framerate, seeing as the amount in real-time that the command waits is  tied to your framerate. It is therefore unreliable to do exact timing, but luckily I have no need for exact timing, just know that most of the nuisances last about 10 seconds. Also note that `wait` has to be enabled on the server (`sv_allow_wait_command 1`) otherwise it'll probably crash your game, so please make sure that the server allows it. For reference, Valve servers allow `wait` but some community servers don't. I've used a *wait tester* to make sure that you only activate it when it's allowed, but still, take care.
+Note that it uses the `wait` command to do pretty much everything, so you might have to tweak the `wait` values to suit your own frame rate, seeing as the amount in real-time that the command waits is  tied to your frame rate. It is therefore unreliable to do exact timing, but luckily I have no need for exact timing, just know that most of the nuisances last about 10 seconds. Also note that `wait` has to be enabled on the server (`sv_allow_wait_command 1`) otherwise it'll probably crash your game, so please make sure that the server allows it. For reference, Valve servers allow `wait` but some community servers don't. I've used a *wait tester* to make sure that you only activate it when it's allowed, but still, take care.
 
 Type `nightmare_0` to deactivate all the nightmare loops.
 
@@ -292,7 +292,7 @@ I also wrote a c-tap script inspired by [Aegis](https://www.youtube.com/user/Ace
 
 On the less useful side, I also made a c-tap script tied to the `spacebar`. When engaged, the `spacebar` will also stop crouching, meaning that you can crouch normally, then hit `space` to stop crouching and immediately jump while also firing with `mouse1` to do a rocket jump. In theory this should result in a c-tap but in practice it rarely works properly, so I really don't recommend using it. It's toggled on and off by hitting `shift`.
 
-Seeing as these scripts (except for the one bound to `space`) take up `mouse2` (right-click) which is used for `+attack2` when using the Cow Mangler 5000, I've made two settings for the Cow Mangler that can partially disable the scripts to allow for `mouse2` to trigger the charged shot. One of those settings for the Cow Mangler is called `cm_pres_noassist` which completely diesables all the jump assist scripts and allows `mouse2` (right-click) to be used to do the charge shot. `cm_pres_assist` keeps your active jump assists, but allows you to press `ALT + mouse2` to do the charge shot. To change the Cow Mangler preset setting navigate to the `SELECTIONS` section at bottom of the Soldier config and change the line `alias cm_pres cm_pres_assist` to `alias cm_pres cm_pres_noassist`. To activate said Cow Mangler setting: `cm_t` (toggles), `cm_1` (enables), `cm_0` (disables).
+Seeing as these scripts (except for the one bound to `space`) take up `mouse2` (right-click) which is used for `+attack2` when using the Cow Mangler 5000, I've made two settings for the Cow Mangler that can partially disable the scripts to allow for `mouse2` to trigger the charged shot. One of those settings for the Cow Mangler is called `cm_pres_noassist` which completely disables all the jump assist scripts and allows `mouse2` (right-click) to be used to do the charge shot. `cm_pres_assist` keeps your active jump assists, but allows you to press `ALT + mouse2` to do the charge shot. To change the Cow Mangler preset setting navigate to the `SELECTIONS` section at bottom of the Soldier config and change the line `alias cm_pres cm_pres_assist` to `alias cm_pres cm_pres_noassist`. To activate said Cow Mangler setting: `cm_t` (toggles), `cm_1` (enables), `cm_0` (disables).
 
 The Market Gardener script is enabled by default, and the rocket jump script is not, but all of this can be changed in the `SELECTIONS` section at the bottom of the class config. It can also be tied to a loadout preset, but this is not currently something I want in the config. How you'd do this is to add the aliases `mg_1n` or `mg_0n`, `rj_1n` or `rj_0n`, or `cm_1n` or `cm_0n` to the loadout aliases. Remember to add `""` around it when there are more than one thing tied to the loadout alias. If you have a specific loadout for the Cow Mangler, by all means put it in there.
 
@@ -306,7 +306,7 @@ In general, I'd advise you to rocket-jump and market garden the normal way, as r
 
 This is technically All-Class but it's most suited for rocket jumping. When you go on an offline private server (listenserver), it'll load up a bunch of coordinates for different maps and will activate the ones for the map your on. The command `tele` will teleport you to the active coordinates (referred to as *positions*). `tele` is bound to `mouse3` by default, but because it gets overridden by the autoexec and class config, you'll have to manually bind it (`bind mouse3 tele`) or manually re-execute the listenserver config (`exec listenserver`).
 
-To change between the positions use the aliases `pos#` where `#` is a number designating the position starting from `1`. For example, practice `pos1` which is enabled by default, then when you're donw with that jump, put `pos2` and teleport to the next jump etc. This is most ideal for `pl_badwater` and `pl_upward`. Note that not all maps support very many jump positions.
+To change between the positions use the aliases `pos#` where `#` is a number designating the position starting from `1`. For example, practice `pos1` which is enabled by default, then when you're done with that jump, put `pos2` and teleport to the next jump etc. This is most ideal for `pl_badwater` and `pl_upward`. Note that not all maps support very many jump positions.
 
 **Soldier features in a table**
 
@@ -331,9 +331,9 @@ Pyro is also pretty simple. Dot crosshairs on primary (Flame Thrower) and second
 
 On the derpier side, I also have a Panic Mode button that will cause you to spray flames like a maniac.
 
-Now, a cool thing I recently added was the ability to completely remove the flame particles. Not just the viewmodel, the God damn actual *flames*. This is useful for actually seeing what's happening on screen when shooting the damn thing. Let me tell you, not having fire in my face improves visiblity!
+Now, a cool thing I recently added was the ability to completely remove the flame particles. Not just the viewmodel, the God damn actual *flames*. This is useful for actually seeing what's happening on screen when shooting the damn thing. Let me tell you, not having fire in my face improves visibility!
 
-`noflame_1` enables this feature, removing the flames. `noflame_0` disables it, making it look like normal. `noflame_t` toggles between on/off. `noflame_vm_1`, `noflame_vm_0`, and `noflame_vm_t` is an extra set of settings. `noflame_vm_1` is like normal, the viewmodel is there until you fire, then the viewmodel and flames disappear (there's no way to only remove the flames, the viewmodel has to go as well, at least without actual particle mods). `noflame_vm_0` is if you prefer the viewmodel to always be off. It's practically the same as just removing the viewmodel, but I figured I'd tie it in here because the two settings were related (and technically it's removed with the same setting as the flames and not actually the viewmodel setting, but anyway, it seemed like a nice option to add here). By default, I've turned `noflame` on, so it removes flames, but the viewmodel is there normally until you fire (comes back when pressing a weapon button (including the flamethrower again even though you're already oin it) or pressing `ALT`).
+`noflame_1` enables this feature, removing the flames. `noflame_0` disables it, making it look like normal. `noflame_t` toggles between on/off. `noflame_vm_1`, `noflame_vm_0`, and `noflame_vm_t` is an extra set of settings. `noflame_vm_1` is like normal, the viewmodel is there until you fire, then the viewmodel and flames disappear (there's no way to only remove the flames, the viewmodel has to go as well, at least without actual particle mods). `noflame_vm_0` is if you prefer the viewmodel to always be off. It's practically the same as just removing the viewmodel, but I figured I'd tie it in here because the two settings were related (and technically it's removed with the same setting as the flames and not actually the viewmodel setting, but anyway, it seemed like a nice option to add here). By default, I've turned `noflame` on, so it removes flames, but the viewmodel is there normally until you fire (comes back when pressing a weapon button (including the flamethrower again even though you're already on it) or pressing `ALT`).
 
 One small thing, because this uses the `viewmodel_fov` command and resets it to the config defined default value (for me personally `84`, but you can change this), it will not work well with the *nightmare mode* thing that intentionally messes up your `viewmodel_fov` for fun. Because the *nightmare* thing is done using a loop, it will override this setting meaning that your flames and viewmodel will still be visible while that particular *plague*, as I've called them because I couldn't think of an actual good name, is active.
 
@@ -350,8 +350,8 @@ I also made loadout presets for `flaregun` (precise crosshair, hides viewmodel w
 |:---------------------	|:----------- |
 | `panicmode` aliases	| `panicmode_t` (toggles), `panicmode_1` (enables), `panicmode_0` (disables). |
 | `flare_ding` aliases	| A ding sound to alert you when the Flare Gun is reloaded. `flare_ding_t` (toggles), `flare_ding_1` (enables) (default), `flare_ding_0` (disables). |
-| `noflame` aliases	| Removes the viewmodel and *flames* when firing. Improves visiblity. `noflame_t` (toggles), `noflame_1` (enables) (default), `noflame_0` (disables). |
-| `noflame_vm` aliases	| Always have the viewmodel and *flames* removed, not just when firing. Improves visiblity. `noflame_vm_t` (toggles), `noflame_vm_1` (enables), `noflame_vm_0` (disables) (default). |
+| `noflame` aliases	| Removes the viewmodel and *flames* when firing. Improves visibility. `noflame_t` (toggles), `noflame_1` (enables) (default), `noflame_0` (disables). |
+| `noflame_vm` aliases	| Always have the viewmodel and *flames* removed, not just when firing. Improves visibility. `noflame_vm_t` (toggles), `noflame_vm_1` (enables), `noflame_vm_0` (disables) (default). |
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
 ## [^](#top "Back to Top")Demoman
@@ -487,7 +487,7 @@ Credit goes to [Uncle Dane](https://www.youtube.com/user/danethebrain "Uncle Dan
 | `loadoutpresets` aliases	| Automatically switching settings when using the `KEYPAD` to switch loadout. `loadoutpresets_t` (toggles), `loadoutpresets_1` (enables) (default), `loadoutpresets_0` (disables), `alias loadoutpresets_n loadoutpresets_0` to disable globally. |
 
 ## [^](#top "Back to Top")Medic
-Medic is pretty complicated and has a lot of features. But first, the crosshairs. The primary (Syringe Gun/Crossbow) and the melee (Bonesaw) use the small dot crosshair, and the secondary (Medigun) uses the default crosshair to get that awesome medic cross crosshair.
+Medic is pretty complicated and has a lot of features. But first, the crosshairs. The primary (Syringe Gun/Crossbow) and the melee (Bonesaw) use the small dot crosshair, and the secondary (Medi Gun) uses the default crosshair to get that awesome medic cross crosshair.
 
 `help_class` will list some of the commands for the different settings. A lot of the settings are enabled by default at the bottom of the file. If you wish to have certain settings disabled by default, feel free to change that at the bottom of the file in the `SELECTIONS` section. Just try changing the `1`s to `0`s.
 
@@ -497,29 +497,29 @@ Very simple. The last loadout slot activates the *Vaccinator* script. All the ot
 
 See how to disable automatic setting switches when using the `KEYPAD` to change loadouts by putting `help_loadout` in console (`loadoutpresets_1` and `loadoutpresets_0`). Even if you disable it, you should still put the preferred preset at the bottom of the config under `SELECTIONS`. Most likely `vacc_t0` unless you *really* like the Vaccinator.
 
-**Inverted Medigun/Autoheal**
+**Inverted Medi Gun/Autoheal**
 
-I use an autoheal script that automatically latches on to people with the medigun. It's a simple trick, it just always attacks. To stop attacking (and switch heal target) press/hold `mouse1` (left-click)
+I use an autoheal script that automatically latches on to people with the Medi Gun. It's a simple trick, it just always attacks. To stop attacking (and switch heal target) press/hold `mouse1` (left-click)
 
 The commands to toggle this on/off are `invmed_t1` and `invmed_t0` respectively. `invmed_tn` toggles it.
 
 **Pop**
 
-When you press `mouse2` (right-click) with any weapon, you will switch to the medigun, attempt to pop Über, and say in team chat "~ ~ FRIENDLY UBER POPPED ~ ~". You have to hold `mouse2` for about a second while switching weapons for it to properly pop the Über, but it works instantaneously when you're already on the Medigun.
+When you press `mouse2` (right-click) with any weapon, you will switch to the Medi Gun, attempt to pop Über, and say in team chat "~ ~ FRIENDLY UBER POPPED ~ ~". You have to hold `mouse2` for about a second while switching weapons for it to properly pop the Über, but it works instantaneously when you're already on the Medi Gun.
 
 The message in team chat can be turned on/off with the commands `pop_1` and `pop_0`. `pop_t` toggles it. Turning it off is most commonly used if you use the Quick-Fix or Vaccinator (the Vaccinator script also turns this off) and the pop is therefore not as big of a deal.
 
 **Needle/Arrow**
 
-If you hold `ALT` while attacking with `mouse1` (left-click) while using the primary or melee, you will switch to the Medigun as soon as you stop attacking, meaning that if you tap it, you'll switch almost instantly. For melee you have to hold the `mouse1` (left-click) all the way through the swing.
+If you hold `ALT` while attacking with `mouse1` (left-click) while using the primary or melee, you will switch to the Medi Gun as soon as you stop attacking, meaning that if you tap it, you'll switch almost instantly. For melee you have to hold the `mouse1` (left-click) all the way through the swing.
 
-This script is meant to be used with the Crusader's Crossbow. You tap once to fire an a needle/arrow, and then immediately switch to the Medigun to continue healing.
+This script is meant to be used with the Crusader's Crossbow. You tap once to fire an a needle/arrow, and then immediately switch to the Medi Gun to continue healing.
 
 It can be turned on/off/toggled with `ndl_1`, `ndl_0`, and `ndl_t`.
 
 **Melee taunt**
 
-Simple. If you hold `ALT` while pressing `mouse2` (right-click) while holding the melee weapon, instead of switching to the Medigun and popping Über (from the Pop script), you'll use the weapon taunt for the melee weapon. This is meant to mimic behaviour added into the game to make is easier to use the Amputator and Ubersaw taunts.
+Simple. If you hold `ALT` while pressing `mouse2` (right-click) while holding the melee weapon, instead of switching to the Medi Gun and popping Über (from the Pop script), you'll use the weapon taunt for the melee weapon. This is meant to mimic behaviour added into the game to make is easier to use the Amputator and Ubersaw taunts.
 
 **Radar**
 
@@ -541,7 +541,7 @@ You can add more chat lines for the sake of variety and even randomize for line 
 
 **Crossbow ding**
 
-Basically, it makes a *ding* sound when the crossbow is fully reloaded after firing. This persists through weapon change, so if you fire an arrow and switch to the Medigun (maybe through the Needle/Arrow script), then it will still make the *ding* sound when the crossbow has reloaded passively. Keep in mind that this is based on you attacking/pressing `mouse1` (left-click) while having the primary out, so if you spam-click, it will spam-ding!
+Basically, it makes a *ding* sound when the crossbow is fully reloaded after firing. This persists through weapon change, so if you fire an arrow and switch to the Medi Gun (maybe through the Needle/Arrow script), then it will still make the *ding* sound when the crossbow has reloaded passively. Keep in mind that this is based on you attacking/pressing `mouse1` (left-click) while having the primary out, so if you spam-click, it will spam-ding!
 
 You can turn the *ding* sound on/off/toggle with `crossbow_ding_1`, `crossbow_ding_0`, `crossbow_ding_t`.
 
@@ -557,8 +557,8 @@ This is a script for switching resistances using the thumb buttons on the mouse.
 |:---------------------	|:----------- |
 | `F1`					| Über Fake to mislead the enemy team. Message can be toggled on/off with `fake_1`, `fake_0`, and `fake_t`. |
 | `F2`					| Über Mask to hide information from the enemy team. Message can be toggled on/off with `mask_1`, `mask_0`, and `mask_t`. |
-| `MOUSE2` - any weapon	| Switches to Medigun, pops Über, and alerts your team. Message can be toggled on/off with `pop_1`, `pop_0`, and `pop_t`. |
-| `ALT + MOUSE1` - primary + melee | Switches to Medigun after firing. Tap for instant switch. Used for crossbow. Can be toggled on/off with `ndl_1`, `ndl_0`, and `ndl_t`. |
+| `MOUSE2` - any weapon	| Switches to Medi Gun, pops Über, and alerts your team. Message can be toggled on/off with `pop_1`, `pop_0`, and `pop_t`. |
+| `ALT + MOUSE1` - primary + melee | Switches to Medi Gun after firing. Tap for instant switch. Used for crossbow. Can be toggled on/off with `ndl_1`, `ndl_0`, and `ndl_t`. |
 | `ALT + MOUSE2` - melee	| Uses melee weapon taunt. |
 | `ALT + E`				| Alerts your heal target in team chat that you want to pop Über. |
 | `ALT + THUMB BUTTONS`	| When Vaccinator is enabled, these will switch to different resistances when pressed multiple times. |
@@ -584,7 +584,7 @@ The Sniper config is also intended to have different settings for different ways
 
 It is worth noting that it actually switches weapon after throwing *faster* than the game normally would, which is actually a pretty big advantage and I feel kind of dirty knowing that. Technically, you can accomplish the same thing by switching weapons really fast manually, so it's not a cheat and it only happened as a result of me needing to accurately track which weapon you have out.
 
-Keep in mind that if you switch to the jarate and press and release to throw it before the jarate is actually out, it will misfire and switch weapons again without having thrown it.
+Keep in mind that if you switch to the Jarate and press and release to throw it before the Jarate is actually out, it will misfire and switch weapons again without having thrown it.
 
 `razorback` is pretty much identical to Gunboats. It will remove slot2 from the mousewheel and any attempts to go to slot2 won't change any script settings like crosshair or viewmodel.
 
@@ -608,7 +608,7 @@ By default, these are the loadout presets:
 
 `xtra_zoom_pres_+` is the preset where *holding down* `SHIFT` (`CTRL` if `shiftcrouch` is active (which it is by default now)) will half the zoom sensitivity making it more precise. This is the preset enabled by default.
 
-`xtra_zoom_pres_t` is the preset where `SHIFT/CTRL` acts as a *toggle* so pressing it once will half the zoom sensitivity and pressing it again will restore it to the default. This doesn't work well at all in my opinion, but it's there as an option. Currently there's no reset for it, so you'll have to keep track of whether or not the sensitivity is halfed yourself.
+`xtra_zoom_pres_t` is the preset where `SHIFT/CTRL` acts as a *toggle* so pressing it once will half the zoom sensitivity and pressing it again will restore it to the default. This doesn't work well at all in my opinion, but it's there as an option. Currently there's no reset for it, so you'll have to keep track of whether or not the sensitivity is halved yourself.
 
 To change presets either change the line `alias xtra_zoom_pres xtra_zoom_pres_+` to the desired preset, or type it in console followed by `xtra_zoom_pres`. Note that this won't save between sessions.
 
@@ -644,7 +644,7 @@ I have binds to quickly use the disguise commands without having to go into the 
 
 To reset the script back to the beginning, say if you hit the wrong button and selected the wrong batch of three, just hit `F4`. This will reset it and you can then select a different batch.
 
-I also have a *random disguise* button bound to `F` that applies a random disguise with normal-ish move speed (Demoman being the slowest). It's cycled using the `WASD` keys. There's a also a loop that can cycle it, but that just lowers your framerate for almost no reason, so I have it disabled. Hold `ALT` while pressing the `F` key to disguise as a random *friendly* disguise excluding the Demoman because it has lower move speed. So `ALT + F` in total.
+I also have a *random disguise* button bound to `F` that applies a random disguise with normal-ish move speed (Demoman being the slowest). It's cycled using the `WASD` keys. There's a also a loop that can cycle it, but that just lowers your frame rate for almost no reason, so I have it disabled. Hold `ALT` while pressing the `F` key to disguise as a random *friendly* disguise excluding the Demoman because it has lower move speed. So `ALT + F` in total.
 
 Because these scripts takes up a lot of the `F#` keys, the actual `F` key, and also `T`, some functions have had to be rebound elsewhere.
 
@@ -673,7 +673,7 @@ Holding `ALT` and pressing `thumb buttons` will change your disguise weapon corr
 | **`MOUSE5` (top thumb button)**		| Disguise Weapon 2	| Disguise Weapon 1		| Disguise Weapon 1 |
 | **`MOUSE4` (bottom thumb button)**	| Disguise Weapon 3	| Disguise Weapon 3		| Disguise Weapon 2 |
 
-This script relies on the release of the button to bring you back to your current weapon, but because it happens so quickly, sometimes something goes wrong and it might not actually switch your disguise weapon properly. You shouldn't end up with a different *actual* weapon, but the disguise weapon might not be what you wnated all the time, so in those cases, you'd have to press the button multiple times to get the desired disguise weapon. To combat this I've also written a version that instead relies on `wait` to make sure that all commands happen in the right order at a set pace as opposed to tying it to you releasing the button. The problem is that `wait` is inherently unreliable at timing since it's tied to your own framerate. Because of this I've disabled the `wait` version by default, but you can enable it in the config. The exact timing values depend on your framerate, and if the timing is off and you press the button too quickly, then you could end up with the wrong weapon equipped which is way worse than just the wrong disguise weapon.
+This script relies on the release of the button to bring you back to your current weapon, but because it happens so quickly, sometimes something goes wrong and it might not actually switch your disguise weapon properly. You shouldn't end up with a different *actual* weapon, but the disguise weapon might not be what you wanted all the time, so in those cases, you'd have to press the button multiple times to get the desired disguise weapon. To combat this I've also written a version that instead relies on `wait` to make sure that all commands happen in the right order at a set pace as opposed to tying it to you releasing the button. The problem is that `wait` is inherently unreliable at timing since it's tied to your own frame rate. Because of this I've disabled the `wait` version by default, but you can enable it in the config. The exact timing values depend on your frame rate, and if the timing is off and you press the button too quickly, then you could end up with the wrong weapon equipped which is way worse than just the wrong disguise weapon.
 
 Back to the config features! If you hold `ALT` while using the `mousewheel` it will also change the disguise weapon alongside your own weapon. It also makes the mousewheel cycle around at 1 and 3, i.e. when you scroll down on 3, it goes to 1, and when you scroll up at 1, it goes to 3. This is not the normal behaviour. Use this to make your disguise more believable by changing weapons a lot more than other spies would. OIr not, it's kind of impractical to do because you can't attack at all and might even lose track of what weapon you have out, but it's kind of cool, and it's fun using this to mess with people at the setup gate.
 
@@ -728,7 +728,7 @@ When you shoot the Revolver, it will change the crosshair to a much smaller dot.
 
 This is to alert you to the exact moment that the spread of the Revolver has been reset. For the Ambassador this is 0.95 sec. For every other Revolver it's 1.25 sec. Keep in mind that it's solely based on you pressing `mouse1` (left-click) to shoot, so if you spam-click, it will spam-ding! It's also only useful if you only want to shoot 100% accurate shots which is a huge handicap to your damage output. For this reason I've disabled this script by default.
 
-To change between using the Ambassador timing or the Revolver timing, navigate to the `SELECTIONS` scetion at the bottom of the Spy config and change the line `alias sht_ding_pres sht_ding_amby` to `alias sht_ding_pres sht_ding_revo` (or the other way around if you have the other one active). This changes the timing when the script is active (`sht_ding_1`). The Ambassador timing is the default value.
+To change between using the Ambassador timing or the Revolver timing, navigate to the `SELECTIONS` section at the bottom of the Spy config and change the line `alias sht_ding_pres sht_ding_amby` to `alias sht_ding_pres sht_ding_revo` (or the other way around if you have the other one active). This changes the timing when the script is active (`sht_ding_1`). The Ambassador timing is the default value.
 
 To toggle the script, and turn it on/off use the commands `sht_ding_t`, `sht_ding_1`, and `sht_ding_0`.
 
@@ -753,7 +753,7 @@ To toggle the script, and turn it on/off use the commands `sht_ding_t`, `sht_din
 | `ALT + Q`				| Switches to last weapon and back. Helps with fake reloading and spamming the Knife's draw animation. |
 | `ALT + MOUSE2`		| Uses a voice line to mask the sound of the decloak. |
 | `ALT + THUMB BUTTONS`	| Changes disguised weapon. Depends on the preset. |
-| `ALT + MOUSEWHEEL`	| Makes the mousewheel switch the disguise weapon alongside your own weapon. Also makes the mousehweel cycle loop back around from 3 to 1 etc. |
+| `ALT + MOUSEWHEEL`	| Makes the mousewheel switch the disguise weapon alongside your own weapon. Also makes the mousewheel cycle loop back around from 3 to 1 etc. |
 | `KEYPAD 3`			| Engages the weapon spam loop (mousewheel when `wait` is disabled). For Spy this also changes disguise weapon. |
 
 
